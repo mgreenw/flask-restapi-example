@@ -1,4 +1,7 @@
-from app import db
+from flask_sqlalchemy import SQLAlchemy
+from flask_marshmallow import Marshmallow
+db = SQLAlchemy()
+ma = Marshmallow()
 
 class Doctor(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -14,5 +17,14 @@ class Review(db.Model):
     description = db.Column(db.Text)
     doctor_id = db.Column(db.Integer, db.ForeignKey('doctor.id'))
 
-    def __init__(self, description):
+    def __init__(self, description, doctor_id):
         self.description = description
+        self.doctor_id = doctor_id
+
+class DoctorSchema(ma.ModelSchema):
+    class Meta:
+        model = Doctor
+
+class ReviewSchema(ma.ModelSchema):
+    class Meta:
+        model = Review
