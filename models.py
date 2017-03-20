@@ -13,6 +13,15 @@ class Doctor(db.Model):
     def __init__(self, name):
         self.name = name
 
+    @property
+    def serialize(self):
+        """Return object data in easily serializeable format"""
+        return {
+            'id': self.id,
+            'name': self.name,
+            'reviews': [review.serialize for review in self.reviews]
+        }
+
 class Review(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     description = db.Column(db.Text)
@@ -22,6 +31,14 @@ class Review(db.Model):
         self.description = description
         self.doctor_id = doctor_id
 
+    @property
+    def serialize(self):
+        """Return object data in easily serializeable format"""
+        return {
+            'id': self.id,
+            'doctor_id': self.doctor_id,
+            'description': self.description,
+        }
 
 #class DoctorSchema(ma.ModelSchema):
 #    class Meta:

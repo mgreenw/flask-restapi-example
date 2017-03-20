@@ -1,34 +1,25 @@
-from flask import Flask
-from flask import jsonify
+from flask import Flask, jsonify, request, abort
 from flask_sqlalchemy import SQLAlchemy
-#from flask_marshmallow import Marshmallow
 from models import (Doctor, Review)
 
-# start the flask app
 app = Flask(__name__)
 app.config.from_pyfile('config.py')
 db = SQLAlchemy(app)
-#ma = Marshmallow(app)
 
 @app.route('/')
 def hello_world():
     return 'Hello, World!'
 
-@app.route('/doctors')
-def hello_doc():
-    return 'Hello, Doctors!'
-
-@app.route('/doctors/<id>')
+@app.route('/api/v1/doctors/<id>')
 def show_doctor(id):
     doctor = Doctor.query.filter_by(id=id).first_or_404()
-    return jsonify(id=doctor.id,
-                   name=doctor.name)
+    return jsonify(doctor.serialize)
 
-@app.route('/doctors/', methods = ['POST'])
+@app.route('/api/v1/doctors', methods=['POST'])
 def create_doctor():
-    if not request.json or not 'name' in request.json:
+    if not request.is_json or 'name' not in request.get_json():
         abort(400)
-    doctor = Doctor(request.json.name)
+    doctor = Doctor(request.get_json()['name'])
     db.session.add(doctor)
     db.session.commit()
-    return jsonify( { 'doctor': doctor } ), 201
+    return jsonify({'doctor': doctor.serialize}), 201
