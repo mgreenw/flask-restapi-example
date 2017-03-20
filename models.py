@@ -16,6 +16,7 @@ class Doctor(db.Model):
     def __init__(self, name):
         self.name = name
 
+    # Gets dict with the Doctor object and all of its associated reviews
     @property
     def serialize(self):
         """Return object data in easily serializeable format"""
@@ -34,6 +35,7 @@ class Review(db.Model):
         self.description = description
         self.doctor_id = doctor_id
 
+    # Gets dict with the Review object
     @property
     def serialize(self):
         """Return object data in easily serializeable format"""

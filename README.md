@@ -1,5 +1,5 @@
-# flask-restapi-example
-A simple RESTful API created using Flask and SQLAlchemy that interacts with a PostgreSQL database of doctors and reviews.
+# A RESTful API in Flask using SQLAlchemy
+The idea: A simple RESTful API created using Flask and SQLAlchemy that interacts with a PostgreSQL database of doctors and reviews.
 
 Python Version Used: Python 3.6.0
 
