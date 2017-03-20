@@ -117,7 +117,7 @@ Python Version Used: Python 3.6.0
   * **Code:** 200 <br />
     **Content:** `
     {
-      "description": "He's a nice guy",
+      "description": "He's not a doctor exactly...",
       "doctor": {
         "id": 1,
         "name": "Max Greenwald"
@@ -161,9 +161,9 @@ Python Version Used: Python 3.6.0
     **Content:** `
     {
       "review": {
-        "description": "He's a nice guy",
-        "doctor_id": 2,
-        "id": 14
+        "description": "He's not a doctor exactly...",
+        "doctor_id": 1,
+        "id": 1
       }
     }
 `
