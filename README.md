@@ -15,6 +15,6 @@ Installation:
 
 To Run:
 
-1) Set an export path for flask: `export FLASK_APP=app.py`
-2) Run flask! `flask run`
+1) Set an export path for flask: `(venv) $ export FLASK_APP=app.py`
+2) Run flask! `(venv) $ flask run`
 3) Go to http://127.0.0.1:5000 in a browser
