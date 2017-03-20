@@ -5,6 +5,7 @@ Python Version Used: Python 3.6.0
 
 Installation:
 
+0) Ensure the python3 version is 3.6.0. To check, run `python3 -V`. If you do not have it, you can install it [here](https://www.python.org/downloads/release/python-360/)
 1) Clone the Github repo: `$ git clone git@github.com:mgreenw/flask-restapi-example.git`
 2) Move into the project directory `$ cd flask-restapi-example`
 3) Setup a virtual environment in the project folder using python3: `$ python3 -m venv /path/to/project-parent-folder/flask-restapi-example/venv`
