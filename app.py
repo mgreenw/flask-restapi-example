@@ -23,3 +23,12 @@ def show_doctor(id):
     doctor = Doctor.query.filter_by(id=id).first_or_404()
     return jsonify(id=doctor.id,
                    name=doctor.name)
+
+@app.route('/doctors/', methods = ['POST'])
+def create_doctor():
+    if not request.json or not 'name' in request.json:
+        abort(400)
+    doctor = Doctor(request.json.name)
+    db.session.add(doctor)
+    db.session.commit()
+    return jsonify( { 'doctor': doctor } ), 201
