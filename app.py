@@ -1,3 +1,8 @@
+# app.py
+# Creator: Max Greenwald
+# Updated: 3/20/17
+# Purpose: Create a Flask app and define the necessary API routes
+
 from flask import Flask, jsonify, request, abort
 from flask_sqlalchemy import SQLAlchemy
 from models import (Doctor, Review)
@@ -38,6 +43,8 @@ def create_review():
     if not request.is_json or 'doctor_id' not in request_json or 'description' not in request_json:
         return bad_request('Missing data. Required fields: doctor_id and description')
     doctor_id = request_json['doctor_id']
+
+    # If the doctor_id is invalid, generate the appropriate 400 message
     try:
         review = Review(doctor_id=doctor_id, description=request_json['description'])
         db.session.add(review)
@@ -46,8 +53,8 @@ def create_review():
         return bad_request('Given doctor_id does not exist')
     return jsonify({'review': review.serialize}), 201
 
-# Helper Functions
 
+# Helper Functions
 def bad_request(message):
     response = jsonify({'error-message': message})
     response.status_code = 400

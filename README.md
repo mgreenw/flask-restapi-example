@@ -1,8 +1,7 @@
 # flask-restapi-example
-A simple RESTful API created using Flask and sqlalchemy that interacts with a PostgreSQL database of doctors and reviews
+A simple RESTful API created using Flask and SQLAlchemy that interacts with a PostgreSQL database of doctors and reviews.
 
-Software Versions Used:
-Python 3.6.0
+Python Version Used: Python 3.6.0
 
 Installation:
 
@@ -14,7 +13,7 @@ Installation:
 6) Install all the requirements, including flask. Be sure not to use `sudo` as this will install flask in the global environment instead of the virtual environment: `(venv) $ pip3 install -r requirements.txt`
 7) In a separate terminal window, install PostgreSQL. To do this, either install PostgreSQL.app or use HomeBrew for MacOS: `$ brew install postgresql`
 8) If using Homebrew, start PostgreSQL: `$ postgres -D /usr/local/var/postgres`
-9) In a separate terminal window, run `$ psql`. Then, run `# CREATE DATABASE doctor_reviews;`
+9) In a separate terminal window, run `$ psql`. Then, create a database called doctor_reviews by running `# CREATE DATABASE doctor_reviews;`
 10) Finally, run `# \q` to quit psql, and back in the original terminal window run `(venv) $ python3 setup.py` to initialize the database tables.
 
 To Run:

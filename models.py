@@ -1,3 +1,8 @@
+# models.py
+# Creator: Max Greenwald
+# Updated: 3/20/17
+# Purpose: Define models and relevant functions for the database with SQLAlchemy
+
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 db = SQLAlchemy()
