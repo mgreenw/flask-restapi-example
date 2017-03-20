@@ -24,7 +24,7 @@ Python Version Used: Python 3.6.0
 3) Go to http://127.0.0.1:5000 in a browser
 
 
-## API Documentation
+# API Documentation
 
 **Show Doctor**
 ----
