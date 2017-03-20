@@ -1,8 +1,6 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
-#from flask_marshmallow import Marshmallow
 db = SQLAlchemy()
-#ma = Marshmallow()
 
 class Doctor(db.Model):
     id = db.Column(db.Integer, primary_key=True)
