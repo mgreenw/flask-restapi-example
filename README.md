@@ -22,3 +22,157 @@ To Run:
 1) Set an export path for flask: `(venv) $ export FLASK_APP=app.py`
 2) Run flask! `(venv) $ flask run`
 3) Go to http://127.0.0.1:5000 in a browser
+
+
+***API Documentation:***
+
+**Show Doctor**
+----
+  Returns json data about a single doctor.
+
+* **URL**
+
+  /api/v1/doctors/:id
+
+* **Method:**
+
+  `GET`
+
+*  **URL Params**
+
+   **Required:**
+
+   `id=[integer]`
+
+* **Data Params**
+
+  None
+
+* **Success Response:**
+
+  * **Code:** 200 <br />
+    **Content:** `{"id": 1, "name": "Max Greenwald", "reviews": []}`
+
+* **Error Response:**
+
+  * **Code:** 404 NOT FOUND <br />
+    **Content:** `{"error": "Doctor does not exist"}`
+
+**Create Doctor**
+----
+  Creates Doctor and returns json data about that doctor
+
+* **URL**
+
+  /api/v1/doctors
+
+* **Method:**
+
+  `POST`
+
+*  **URL Params**
+
+   None
+
+* **Data Params**
+
+  **Required:**
+
+  `name=[string]`
+
+* **Success Response:**
+
+  * **Code:** 201 <br />
+    **Content:** `{"doctor": {"id": 1, "name": "Max Greenwald", "reviews": []}}`
+
+* **Error Response:**
+
+  * **Code:** 400 BAD REQUEST <br />
+    **Content:** `{"error": "Missing required data."}`
+
+**Show Review**
+----
+  Returns json data about a single review.
+
+* **URL**
+
+  /api/v1/reviews/:id
+
+* **Method:**
+
+  `GET`
+
+*  **URL Params**
+
+   **Required:**
+
+   `id=[integer]`
+
+* **Data Params**
+
+  None
+
+* **Success Response:**
+
+  * **Code:** 200 <br />
+    **Content:** `
+    {
+      "description": "He's a nice guy",
+      "doctor": {
+        "id": 1,
+        "name": "Max Greenwald"
+      },
+      "doctor_id": 1,
+      "id": 1
+    }
+`
+
+* **Error Response:**
+
+  * **Code:** 404 NOT FOUND <br />
+    **Content:** `{"error": "Review does not exist."}`
+
+**Create Review**
+----
+  Creates a Review and returns json data about that Review
+
+* **URL**
+
+  /api/v1/reviews
+
+* **Method:**
+
+  `POST`
+
+*  **URL Params**
+
+   None
+
+* **Data Params**
+
+  **Required:**
+
+  `description=[text]`
+  `doctor_id=[int]`
+
+* **Success Response:**
+
+  * **Code:** 201 <br />
+    **Content:** `
+    {
+      "review": {
+        "description": "He's a nice guy",
+        "doctor_id": 2,
+        "id": 14
+      }
+    }
+`
+* **Error Response:**
+
+  * **Code:** 400 BAD REQUEST <br />
+    **Content:** `{"error": "Missing required data."}`
+
+    OR
+
+* **Code:** 400 UNAUTHORIZED <br />
+  **Content:** `{ error : "Given doctor_id does not exist." }`
