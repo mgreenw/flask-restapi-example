@@ -39,11 +39,3 @@ class Review(db.Model):
             'doctor_id': self.doctor_id,
             'description': self.description,
         }
-
-#class DoctorSchema(ma.ModelSchema):
-#    class Meta:
-#        model = Doctor
-#
-#class ReviewSchema(ma.ModelSchema):
-#    class Meta:
-#        model = Review
