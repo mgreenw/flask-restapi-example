@@ -12,3 +12,9 @@ Installation:
 4) Start the virtual environment. You should see `(venv)` in as part of the command prompt once it is started: `$ source /path/to/project-parent-folder/flask-restapi-example/venv/bin/activate`
 5) To stop the virtual environment at any time, run `(venv) $ deactivate`
 6) Install all the requirements, including flask. Be sure not to use `sudo` as this will install flask in the global environment instead of the virtual environment: `(venv) $ pip3 install -r requirements.txt`
+
+To Run:
+
+1) Set an export path for flask: `export FLASK_APP=app.py`
+2) Run flask! `flask run`
+3) Go to http://127.0.0.1:5000 in a browser
