@@ -2,10 +2,12 @@ from flask import Flask, jsonify, request, abort
 from flask_sqlalchemy import SQLAlchemy
 from models import (Doctor, Review)
 
+# Initialize Flask app with SQLAlchemy
 app = Flask(__name__)
 app.config.from_pyfile('config.py')
 db = SQLAlchemy(app)
 
+# Doctor Routes
 @app.route('/api/v1/doctors/<id>')
 def show_doctor(id):
     doctor = Doctor.query.filter_by(id=id).first_or_404()
@@ -20,6 +22,7 @@ def create_doctor():
     db.session.commit()
     return jsonify({'doctor': doctor.serialize}), 201
 
+#Review Routes
 @app.route('/api/v1/reviews/<id>')
 def show_review(id):
     review = Review.query.filter_by(id=id).first_or_404()

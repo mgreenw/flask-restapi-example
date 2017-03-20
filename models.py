@@ -4,7 +4,7 @@ db = SQLAlchemy()
 
 class Doctor(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(50))
+    name = db.Column(db.String(50), nullable=False)
     reviews = db.relationship('Review', backref='doctor',
                                 lazy='select')
 
@@ -22,8 +22,8 @@ class Doctor(db.Model):
 
 class Review(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    description = db.Column(db.Text)
-    doctor_id = db.Column(db.Integer, db.ForeignKey('doctor.id'))
+    description = db.Column(db.Text, nullable=False)
+    doctor_id = db.Column(db.Integer, db.ForeignKey('doctor.id'), nullable=False)
 
     def __init__(self, description, doctor_id):
         self.description = description
