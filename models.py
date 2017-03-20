@@ -1,7 +1,8 @@
+from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
-from flask_marshmallow import Marshmallow
+#from flask_marshmallow import Marshmallow
 db = SQLAlchemy()
-ma = Marshmallow()
+#ma = Marshmallow()
 
 class Doctor(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -21,10 +22,11 @@ class Review(db.Model):
         self.description = description
         self.doctor_id = doctor_id
 
-class DoctorSchema(ma.ModelSchema):
-    class Meta:
-        model = Doctor
 
-class ReviewSchema(ma.ModelSchema):
-    class Meta:
-        model = Review
+#class DoctorSchema(ma.ModelSchema):
+#    class Meta:
+#        model = Doctor
+#
+#class ReviewSchema(ma.ModelSchema):
+#    class Meta:
+#        model = Review
