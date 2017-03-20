@@ -15,7 +15,7 @@ Installation:
 7) In a separate terminal window, install PostgreSQL. To do this, either install PostgreSQL.app or use HomeBrew for MacOS: `$ brew install postgresql`
 8) If using Homebrew, start PostgreSQL: `$ postgres -D /usr/local/var/postgres`
 9) In a separate terminal window, run `$ psql`. Then, run `# CREATE DATABASE doctor_reviews;`
-10) Finally, run `\q` to quit psql, and back in the original terminal window run `python3 setup.py` to initialize the database tables.
+10) Finally, run `# \q` to quit psql, and back in the original terminal window run `(venv) $ python3 setup.py` to initialize the database tables.
 
 To Run:
 
